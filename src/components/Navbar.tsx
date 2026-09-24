@@ -3,6 +3,7 @@ import { MessageSquare, Send, Code, ShieldCheck, BookOpen, Download, Smartphone,
 import { downloadProjectZip } from '../utils/zipDownloader';
 import { PWAInstallButton } from './PWAInstallButton';
 import { UserSession } from './MobileLoginModal';
+import { AnvexaaLogo } from './AnvexaaLogo';
 
 interface NavbarProps {
   activeTab: 'simulator' | 'bulk' | 'code' | 'webhook' | 'guide';
@@ -25,27 +26,12 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header className="sticky top-0 z-40 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 text-white shadow-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo & Brand: Anvexaa AI */}
-          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setActiveTab('simulator')}>
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 via-teal-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-emerald-500/25 text-white">
-              <MessageSquare className="w-5 h-5 fill-current" />
-            </div>
-            <div>
-              <div className="flex items-center gap-1.5">
-                <span className="font-bold text-lg tracking-tight bg-gradient-to-r from-white via-slate-100 to-emerald-400 bg-clip-text text-transparent">
-                  Anvexaa AI
-                </span>
-                <span className="w-4 h-4 rounded-full bg-emerald-400 text-slate-950 flex items-center justify-center text-[9px] font-bold" title="Verified Anvexaa AI Business Account">
-                  ✓
-                </span>
-                <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                  Cloud API v21.0
-                </span>
-              </div>
-              <p className="text-[11px] text-slate-400 hidden sm:block">
-                WhatsApp Automation & CSV Bulk Sender (Android Ready)
-              </p>
-            </div>
+          {/* Official Anvexaa AI Logo & Brand */}
+          <div className="flex items-center space-x-3 cursor-pointer select-none" onClick={() => setActiveTab('simulator')}>
+            <AnvexaaLogo size="md" showSubtitle={true} />
+            <span className="hidden xl:inline-flex items-center text-[10px] font-semibold px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
+              Cloud API v21.0
+            </span>
           </div>
 
           {/* Nav Tabs */}

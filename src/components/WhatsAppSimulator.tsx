@@ -19,6 +19,7 @@ import {
   ShieldAlert
 } from 'lucide-react';
 import { ChatMessage, BotConfig } from '../types';
+import { AnvexaaLogo, AnvexaaLogoGlyph } from './AnvexaaLogo';
 
 interface WhatsAppSimulatorProps {
   config: BotConfig;
@@ -287,8 +288,8 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ config, se
               <div className="bg-[#075E54] text-white pt-7 pb-2.5 px-3 flex items-center justify-between shadow-md z-10">
                 <div className="flex items-center gap-2">
                   <div className="relative">
-                    <div className="w-9 h-9 rounded-full bg-emerald-700 border border-white/20 flex items-center justify-center font-bold text-xs text-white uppercase shadow">
-                      {config.businessName.slice(0, 2)}
+                    <div className="w-10 h-10 rounded-full bg-slate-950 border border-cyan-400/40 flex items-center justify-center p-0.5 shadow-md shadow-cyan-500/20 overflow-hidden">
+                      <AnvexaaLogoGlyph size={32} />
                     </div>
                     <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-400 border-2 border-[#075E54] rounded-full" />
                   </div>
@@ -299,7 +300,7 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ config, se
                         ✓
                       </span>
                     </div>
-                    <p className="text-[10px] text-emerald-200">Online | Official Business Account</p>
+                    <p className="text-[10px] text-emerald-200">Online | Official AI Solutions</p>
                   </div>
                 </div>
 
@@ -426,6 +427,9 @@ export const WhatsAppSimulator: React.FC<WhatsAppSimulatorProps> = ({ config, se
 
         {/* Right Column: Interactive Menu Tester & Meta Payload Inspector (6/7 Cols on LG) */}
         <div className="lg:col-span-6 xl:col-span-7 space-y-5">
+          {/* Official Anvexaa AI Branding Card with 5 AI Services */}
+          <AnvexaaLogo size="hero" showServices={true} />
+
           {/* Quick Keyword Menu Guide Card */}
           <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg">
             <h3 className="text-sm font-bold text-white flex items-center gap-2 mb-3">

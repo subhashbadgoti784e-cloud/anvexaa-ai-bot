@@ -20,6 +20,7 @@ import {
 import confetti from 'canvas-confetti';
 import { Contact, LogEntry, BotConfig } from '../types';
 import { downloadSingleFile } from '../utils/zipDownloader';
+import { AnvexaaLogoGlyph } from './AnvexaaLogo';
 
 interface BulkSenderProps {
   config: BotConfig;
@@ -277,12 +278,12 @@ export const BulkSender: React.FC<BulkSenderProps> = ({ config }) => {
       {/* Header Banner */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/80 border border-slate-800 p-5 rounded-2xl shadow-lg">
         <div>
-          <div className="flex items-center gap-2">
-            <span className="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-400">
-              <Send className="w-4 h-4" />
-            </span>
-            <h2 className="text-lg font-bold text-white">WhatsApp CSV Bulk Template Sender</h2>
-            <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
+          <div className="flex items-center gap-2.5">
+            <div className="p-1 rounded-xl bg-slate-950 border border-cyan-500/40 shadow-sm shadow-cyan-500/20">
+              <AnvexaaLogoGlyph size={24} />
+            </div>
+            <h2 className="text-lg font-bold text-white">Anvexaa AI CSV Bulk Pitch & Template Sender</h2>
+            <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-cyan-300 border border-cyan-500/30">
               bulk.py engine
             </span>
           </div>
