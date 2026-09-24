@@ -1,0 +1,6 @@
+{
+  "name": "WhatsApp Auto-Bot & Bulk Sender",
+  "description": "WhatsApp Cloud API auto-reply bot with Hinglish menu keywords, CSV bulk template sender with rate limiting, and interactive test simulator.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
