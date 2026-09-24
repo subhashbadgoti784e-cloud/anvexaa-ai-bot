@@ -7,13 +7,13 @@ interface GitHubUploadModalProps {
 }
 
 export const GitHubUploadModal: React.FC<GitHubUploadModalProps> = ({ isOpen, onClose }) => {
-  const [repoUrl, setRepoUrl] = useState('https://github.com/subhashbadgoti784e-cloud/anvexaa-ai-bot.git');
+  const [repoUrl, setRepoUrl] = useState('https://github.com/subhashbadgoti784e-cloud/anvexaa-bot.git');
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
   if (!isOpen) return null;
 
   const cleanUrl = repoUrl.trim();
-  const effectiveUrl = cleanUrl || 'https://github.com/subhashbadgoti784e-cloud/anvexaa-ai-bot.git';
+  const effectiveUrl = cleanUrl || 'https://github.com/subhashbadgoti784e-cloud/anvexaa-bot.git';
 
   const step1 = `git init`;
   const step2 = `git add .`;
