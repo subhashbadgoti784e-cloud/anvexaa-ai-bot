@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageSquare, Send, Code, ShieldCheck, BookOpen, Download, Smartphone, User, CheckCircle2 } from 'lucide-react';
+import { MessageSquare, Send, Code, ShieldCheck, BookOpen, Download, Smartphone, User, CheckCircle2, Github } from 'lucide-react';
 import { downloadProjectZip } from '../utils/zipDownloader';
 import { PWAInstallButton } from './PWAInstallButton';
 import { UserSession } from './MobileLoginModal';
@@ -10,6 +10,7 @@ interface NavbarProps {
   session: UserSession | null;
   onOpenLogin: () => void;
   onOpenAndroidGuide: () => void;
+  onOpenGitHubModal: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ 
@@ -17,7 +18,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   setActiveTab,
   session,
   onOpenLogin,
-  onOpenAndroidGuide
+  onOpenAndroidGuide,
+  onOpenGitHubModal
 }) => {
   return (
     <header className="sticky top-0 z-40 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 text-white shadow-xl">
@@ -135,6 +137,16 @@ export const Navbar: React.FC<NavbarProps> = ({
               </button>
             )}
 
+            {/* GitHub Upload Button */}
+            <button
+              onClick={onOpenGitHubModal}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold transition-all hover:border-slate-500"
+              title="Upload project data to GitHub"
+            >
+              <Github className="w-3.5 h-3.5 fill-current text-white" />
+              <span className="hidden sm:inline">GitHub</span>
+            </button>
+
             {/* Download Zip */}
             <button
               onClick={downloadProjectZip}
@@ -188,6 +200,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             Guide
+          </button>
+          <button
+            onClick={onOpenGitHubModal}
+            className="px-2.5 py-1 rounded-md whitespace-nowrap text-slate-200 bg-slate-800 border border-slate-700 flex items-center gap-1"
+          >
+            <Github className="w-3 h-3 fill-current" />
+            <span>GitHub</span>
           </button>
           <button
             onClick={onOpenAndroidGuide}

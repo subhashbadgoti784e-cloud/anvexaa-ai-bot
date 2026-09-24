@@ -7,14 +7,16 @@ import { WebhookTester } from './components/WebhookTester';
 import { SetupGuide } from './components/SetupGuide';
 import { MobileLoginModal, UserSession } from './components/MobileLoginModal';
 import { AndroidRunnerModal } from './components/AndroidRunnerModal';
+import { GitHubUploadModal } from './components/GitHubUploadModal';
 import { BotConfig } from './types';
 import { downloadProjectZip } from './utils/zipDownloader';
-import { MessageSquare, FolderArchive, Smartphone, ShieldCheck, Sparkles } from 'lucide-react';
+import { MessageSquare, FolderArchive, Smartphone, ShieldCheck, Sparkles, Github } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<'simulator' | 'bulk' | 'code' | 'webhook' | 'guide'>('simulator');
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isAndroidModalOpen, setIsAndroidModalOpen] = useState(false);
+  const [isGitHubModalOpen, setIsGitHubModalOpen] = useState(false);
   const [session, setSession] = useState<UserSession | null>(null);
 
   const [config, setConfig] = useState<BotConfig>({
@@ -60,6 +62,7 @@ export default function App() {
         session={session}
         onOpenLogin={() => setIsLoginModalOpen(true)}
         onOpenAndroidGuide={() => setIsAndroidModalOpen(true)}
+        onOpenGitHubModal={() => setIsGitHubModalOpen(true)}
       />
 
       {/* Main Content Area */}
@@ -99,6 +102,12 @@ export default function App() {
         onClose={() => setIsAndroidModalOpen(false)}
       />
 
+      {/* GitHub Upload Modal */}
+      <GitHubUploadModal
+        isOpen={isGitHubModalOpen}
+        onClose={() => setIsGitHubModalOpen(false)}
+      />
+
       {/* Footer */}
       <footer className="border-t border-slate-800/80 bg-slate-900/60 py-6 text-xs text-slate-400">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -110,6 +119,13 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-4 text-xs">
+            <button
+              onClick={() => setIsGitHubModalOpen(true)}
+              className="text-slate-300 hover:text-white transition-colors flex items-center gap-1 font-medium"
+            >
+              <Github className="w-3.5 h-3.5 fill-current" />
+              <span>GitHub</span>
+            </button>
             <button
               onClick={() => setIsAndroidModalOpen(true)}
               className="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1 font-medium"
